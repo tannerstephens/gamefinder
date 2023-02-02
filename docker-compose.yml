@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  backend:
+    image: "trainrex/gamefinder"
+  frontend:
+    image: "trainrex/gamefinder-frontend"
+  nginx:
+    image: "trainrex/gamefinder-nginx"
+    ports:
+      - "80:80"
