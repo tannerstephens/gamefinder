@@ -1,0 +1,17 @@
+version: '3'
+
+tasks:
+  frontend-dev:
+    dir: ./gamefinder/frontend
+    cmds:
+      - npm run dev
+  up:
+    cmds:
+      - docker compose up -d
+      - task: frontend-dev
+  down:
+    cmds:
+      - docker compose down
+  build:
+    cmds:
+      - docker build -t trainrex/gamefinder:latest .

@@ -1,8 +1,7 @@
 version: "3.9"
 services:
   backend:
-    build: ./gamefinder-backend
-  frontend:
-    build: ./gamefinder-frontend
-  nginx:
-    build: ./nginx
+    build: .
+    volumes:
+      - ./:/app
+    command: ["gunicorn", "--bind", "0.0.0.0:8000", "--reload", "--access-logfile", "-", "gamefinder:create_app()"]

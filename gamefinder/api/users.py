@@ -11,6 +11,8 @@ blueprint = Blueprint("users", __name__, url_prefix="/users")
 def list_users():
     users = db.session.query(User).all()
 
+    print("users")
+
     return [user.serialize() for user in users]
 
 

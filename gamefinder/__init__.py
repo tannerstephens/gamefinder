@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 
 from .config import get_config
 from .database import db
@@ -15,5 +15,13 @@ def create_app():
         from . import api
 
         app.register_blueprint(api.blueprint)
+
+    @app.route("/")
+    def base():
+        return send_from_directory("frontend/public", "index.html")
+
+    @app.route("/<path:path>")
+    def serve_frontend(path):
+        return send_from_directory("frontend/public", path)
 
     return app
