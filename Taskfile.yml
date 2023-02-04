@@ -1,6 +1,10 @@
 version: '3'
 
 tasks:
+  npm:
+    dir: ./gamefinder/frontend
+    cmds:
+      - npm {{.CLI_ARGS}}
   frontend-dev:
     dir: ./gamefinder/frontend
     cmds:

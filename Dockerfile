@@ -27,7 +27,10 @@ RUN mkdir /app/gamefinder/frontend/public
 COPY --from=build /app/public/ /app/gamefinder/frontend/public/
 
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
+RUN mkdir /config && chown -R appuser /config
 USER appuser
+
+ENV DATABASE_URI=sqlite:////config/gamefinder.db
 
 EXPOSE 8000
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "-w", "4", "gamefinder:create_app()"]
