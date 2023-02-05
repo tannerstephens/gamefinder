@@ -24,4 +24,8 @@ def create_app():
     def serve_frontend(path):
         return send_from_directory("frontend/public", path)
 
+    from .before_request import before_request
+
+    before_request(app)
+
     return app

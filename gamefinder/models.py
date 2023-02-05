@@ -22,6 +22,10 @@ class BaseModel:
         if commit:
             db.session.commit()
 
+    @classmethod
+    def get_by_id(cls, id: int):
+        return db.session.query(cls).filter(cls.id == id).first()
+
 
 class User(BaseModel, db.Base):
     __tablename__ = "users"

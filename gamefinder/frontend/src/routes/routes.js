@@ -1,7 +1,7 @@
 import Home from './routes/Home.svelte';
-import Test from './routes/Test.svelte';
+import Login from './routes/Login.svelte';
 
 export default {
     '/': Home,
-    '/test': Test
+    '/login': Login
 }
