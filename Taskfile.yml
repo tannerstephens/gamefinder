@@ -5,14 +5,14 @@ tasks:
     dir: ./gamefinder/frontend
     cmds:
       - npm {{.CLI_ARGS}}
-  frontend-dev:
+  frontend:
     dir: ./gamefinder/frontend
     cmds:
       - npm run dev
   up:
     cmds:
       - docker compose up -d
-      - task: frontend-dev
+      - task: frontend
   down:
     cmds:
       - docker compose down

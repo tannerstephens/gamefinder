@@ -17,6 +17,7 @@
         if (submitEnabled) {
             api.setConfig(username, password)
             .then(json => {
+                console.log(json);
                 if(json.setup_completed) {
                     replace('/');
                 }

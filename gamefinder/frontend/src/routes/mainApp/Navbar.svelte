@@ -1,6 +1,7 @@
 <script>
     import { Container } from '../../bulma/layout';
     import NavbarEnd from './navbar/NavbarEnd.svelte';
+    import NavbarStart from './navbar/NavbarStart.svelte';
 
     let isActive = false;
 </script>
@@ -20,6 +21,7 @@
         </div>
 
         <div id="navbar" class="navbar-menu" class:is-active={isActive}>
+            <NavbarStart />
             <NavbarEnd />
         </div>
     </Container>

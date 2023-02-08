@@ -18,11 +18,9 @@
             </div>
 
             <div class="navbar-dropdown">
-                <div class="navbar-item">
-                    <button class="button is-dark" on:click={logout}>
-                        Logout
-                    </button>
-                </div>
+                <a class="navbar-item" on:click={logout} href="#/">
+                    Logout
+                </a>
             </div>
         </div>
     {:else}

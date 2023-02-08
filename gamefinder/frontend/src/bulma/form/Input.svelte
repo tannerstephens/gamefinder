@@ -19,6 +19,6 @@
 <field class="field">
     <label class="label" for={name}>{name}</label>
     <div class="control">
-        <input id={name} class="input" type={type} value={value} on:input={handleInput}>
+        <input id={name} class="input" type={type} value={value} on:input={handleInput} {...$$props}>
     </div>
 </field>

@@ -1,6 +1,6 @@
 from flask import Blueprint, g, request, session
 
-from ..lib import error_response
+from ..lib import api_response, error_response
 from ..models import User
 
 blueprint = Blueprint("auth", __name__, url_prefix="/auth")
@@ -18,7 +18,7 @@ def login():
 
     session["user_id"] = user.id
 
-    return {"success": True, "user": user.serialize()}
+    return api_response({"user": user.serialize()})
 
 
 @blueprint.route("/", methods=["GET"])
@@ -26,11 +26,11 @@ def get_login():
     data = None
     if g.user:
         data = g.user.serialize()
-    return {"success": True, "user": data}
+    return api_response({"user": data})
 
 
 @blueprint.route("/", methods=["DELETE"])
 def logout():
     session.clear()
 
-    return {"success": True, "user": None}
+    return api_response({"user": None})

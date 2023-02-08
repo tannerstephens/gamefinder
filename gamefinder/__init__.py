@@ -11,6 +11,10 @@ def create_app():
     db.init_app(app)
     db.create_all()
 
+    from .before_request import before_request
+
+    before_request(app)
+
     with app.app_context():
         from . import api
 
@@ -23,9 +27,5 @@ def create_app():
     @app.route("/<path:path>")
     def serve_frontend(path):
         return send_from_directory("frontend/public", path)
-
-    from .before_request import before_request
-
-    before_request(app)
 
     return app
