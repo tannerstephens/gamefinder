@@ -1,19 +1,21 @@
 import enum
 import os
+import re
 import textwrap
 from hashlib import pbkdf2_hmac
-from typing import Optional
 
 from sqlalchemy import (
     Boolean,
     Column,
     Enum,
     ForeignKey,
+    Index,
     Integer,
     String,
     Table,
     UnaryExpression,
     UniqueConstraint,
+    func,
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -57,6 +59,8 @@ class BaseModel:
 
 
 class User(BaseModel, db.Base):
+    PASSWORD_REGEX = re.compile(r"[a-zA-Z0-9*.!@#$%^&(){}\[\]:;<>,.?\/~_+\-=|\\]{8,}")
+
     __tablename__ = "users"
     username: Mapped[str] = mapped_column(
         String, unique=True, index=True, nullable=False
@@ -87,8 +91,18 @@ class User(BaseModel, db.Base):
 
     @classmethod
     def get_by_uername(cls, username: str):
-        return db.session.query(cls).filter(cls.username == username).first()
+        return (
+            db.session.query(cls)
+            .filter(func.lower(cls.username) == username.lower())
+            .first()
+        )
 
+    @classmethod
+    def is_valid_password(cls, password: str):
+        return cls.PASSWORD_REGEX.match(password) is not None
+
+
+username_lower_index = Index("username_lower_index", func.lower(User.username))
 
 game_tags = Table(
     "game_tags",

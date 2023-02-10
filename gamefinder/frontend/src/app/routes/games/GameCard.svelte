@@ -1,7 +1,7 @@
 <script>
     export let game;
 
-    import Column from "../../../bulma/layout/Column.svelte";
+    import Column from "$lib/bulma/layout/Column.svelte";
 </script>
 
 <Column class="is-one-quarter">
@@ -29,10 +29,11 @@
         height: 256px;
         width: auto;
         margin: auto;
+        padding: 20px;
     }
 
     .is-regular {
-        background-color: black;
+        background-color: white;
     }
 
     .card {

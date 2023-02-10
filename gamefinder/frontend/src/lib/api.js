@@ -2,15 +2,8 @@ const defaultHeaders = {
     'Content-Type': 'application/json',
 };
 
-let config = null;
-
 export const api = {
-    getConfig: (force=false) => {
-        if(force || config === null) {
-            config = fetch('/api/setup/').then(resp => resp.json());
-        }
-        return config;
-    },
+    getConfig: () => fetch('/api/setup/').then(resp => resp.json()),
     setConfig: (username, password) => {
         return fetch('/api/setup/', {
             method: 'POST',
@@ -18,7 +11,6 @@ export const api = {
             body: JSON.stringify({username, password})
         }).then(resp => resp.json())
         .then(json => {
-            config = json;
             return json;
         });
     },

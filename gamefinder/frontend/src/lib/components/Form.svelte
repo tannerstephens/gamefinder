@@ -1,8 +1,8 @@
 <script>
     import { createEventDispatcher } from 'svelte';
 
-    import { Column, Columns, Level } from '../bulma/layout';
-    import {Box} from '../bulma/elements';
+    import { Column, Columns, Level } from '$lib/bulma/layout';
+    import {Box} from '$lib/bulma/elements';
 
     const dispatch = createEventDispatcher();
 

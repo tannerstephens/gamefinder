@@ -1,9 +1,9 @@
 <script>
-    import api from "../../api";
+    import api from "$lib/api";
 
-    import Box from "../../bulma/elements/Box.svelte";
+    import Box from "$lib/bulma/elements/Box.svelte";
 
-    import {Column, Columns} from "../../bulma/layout";
+    import {Column, Columns} from "$lib/bulma/layout";
 
     export let params;
 

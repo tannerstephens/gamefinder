@@ -2,11 +2,11 @@
     import { push } from 'svelte-spa-router'
 
 
-    import Form from '../../elements/Form.svelte';
-    import { Input } from '../../bulma/form';
-    import Select from '../../bulma/form/Select.svelte';
+    import Form from '$lib/components/Form.svelte';
+    import { Input } from '$lib/bulma/form';
+    import Select from '$lib/bulma/form/Select.svelte';
 
-    import api from '../../api';
+    import api from '$lib/api';
 
     let submitEnabled = false, name='', width, height, type;
 

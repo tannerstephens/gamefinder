@@ -1,10 +1,10 @@
 <script>
     import { replace } from 'svelte-spa-router'
-    import {Input} from '../../bulma/form';
-    import Form from '../../elements/Form.svelte';
+    import {Input} from '$lib/bulma/form';
+    import Form from '$lib/components/Form.svelte';
 
-    import api from '../../api';
-    import user from '../../stores/user';
+    import api from '$lib/api';
+    import user from '$lib/stores/user';
 
     let username='', password='', submitEnabled=false;
 

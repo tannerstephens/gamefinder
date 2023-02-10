@@ -1,5 +1,5 @@
 <script>
-    import { Container } from '../../bulma/layout';
+    import { Container } from '$lib/bulma/layout';
     import NavbarEnd from './navbar/NavbarEnd.svelte';
     import NavbarStart from './navbar/NavbarStart.svelte';
 

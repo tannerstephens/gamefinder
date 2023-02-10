@@ -1,5 +1,5 @@
 <script>
-    import user from '../../../stores/user';
+    import user from '$lib/stores/user';
 </script>
 
 <div class="navbar-start">

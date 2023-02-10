@@ -1,6 +1,6 @@
 <script>
-    import api from "../../api";
-    import Columns from "../../bulma/layout/Columns.svelte";
+    import api from "$lib/api";
+    import Columns from "$lib/bulma/layout/Columns.svelte";
     import GameCard from "./games/GameCard.svelte";
 
     let page = 1;
@@ -24,7 +24,7 @@
 
 <nav class="pagination is-centered" aria-label="pagination">
     <button class="button pagination-previous is-link" disabled={page==1} on:click={() => page -= 1}>Previous</button>
-    <button class="button pagination-next is-link" disabled={page==total_pages} on:click= {() => page += 1}>Next page</button>
+    <button class="button pagination-next is-link" disabled={page>=total_pages} on:click= {() => page += 1}>Next page</button>
 </nav>
 
 

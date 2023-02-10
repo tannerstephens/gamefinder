@@ -1,6 +1,6 @@
 <script>
-    import user from '../../../stores/user';
-    import api from '../../../api';
+    import user from '$lib/stores/user';
+    import api from '$lib/api';
 
     const logout = () => {
         api.logout()

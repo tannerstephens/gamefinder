@@ -4,7 +4,6 @@ services:
     build: .
     volumes:
       - ./:/app
-      - /tmp:/config
     command: ["gunicorn", "--bind", "0.0.0.0:8000", "--reload", "--access-logfile", "-", "gamefinder:create_app()"]
     environment:
       - SECRET_KEY=notsosecret
