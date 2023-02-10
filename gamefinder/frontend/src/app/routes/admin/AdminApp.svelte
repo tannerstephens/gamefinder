@@ -4,7 +4,7 @@
 
     import routes from './adminApp/routes';
 
-    $: if($user.success && !$user.user.is_admin) {
+    $: if($user.user && !$user.user.is_admin) {
         replace('/');
     }
 </script>

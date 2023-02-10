@@ -7,7 +7,7 @@
         Browse Games
     </a>
 
-    {#if $user.success && $user.user.is_admin}
+    {#if $user.user && $user.user.is_admin}
         <div class="navbar-item has-dropdown is-hoverable">
             <div class="navbar-link">
                 Admin Zone

@@ -11,7 +11,7 @@
 </script>
 
 <div class="navbar-end">
-    {#if $user.success}
+    {#if $user.user}
         <div class="navbar-item has-dropdown is-hoverable">
             <div class="navbar-link">
                 {$user.user.username}

@@ -19,3 +19,6 @@ tasks:
   build:
     cmds:
       - docker build -t trainrex/gamefinder:latest .
+  push:
+    cmds:
+      - docker push trainrex/gamefinder:latest
