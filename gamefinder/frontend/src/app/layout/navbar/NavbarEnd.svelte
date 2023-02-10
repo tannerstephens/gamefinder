@@ -11,10 +11,10 @@
 </script>
 
 <div class="navbar-end">
-    {#if $user.user}
+    {#if $user}
         <div class="navbar-item has-dropdown is-hoverable">
             <div class="navbar-link">
-                {$user.user.username}
+                {$user.username}
             </div>
 
             <div class="navbar-dropdown">

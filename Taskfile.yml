@@ -19,6 +19,12 @@ tasks:
   build:
     cmds:
       - docker build -t trainrex/gamefinder:latest .
-  push:
+  release:
     cmds:
+      - task: build
+      - docker tag trainrex/gamefinder:latest trainrex/gamefinder:{{.VERSION}}
       - docker push trainrex/gamefinder:latest
+      - docker push trainrex/gamefinder:{{.VERSION}}
+    vars:
+      VERSION:
+        sh: cat VERSION
