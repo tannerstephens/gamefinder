@@ -218,6 +218,11 @@ class Game(BaseModel, db.Base):
             "max_playtime": self.max_playtime,
             "min_age": self.min_age,
             "tags": [tag.serialize() for tag in self.tags],
+            "location": {
+                "shelf": self.shelf.name,
+                "row": self.shelf_row,
+                "col": self.shelf_column,
+            },
         }
 
     @classmethod

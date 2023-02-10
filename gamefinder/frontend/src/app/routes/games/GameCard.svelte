@@ -14,7 +14,7 @@
             </div>
             <div class="card-content">
                 <p class="title is-4">{game.name}</p>
-                <p class="subtitle is-6">Other Junk</p>
+                <p class="subtitle is-6">{game.location.shelf}: Row: {game.location.row}, Col: {game.location.col}</p>
 
                 <div class="content">
                     {@html game.short_description}
